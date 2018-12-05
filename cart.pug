@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, user-scalable=no")
+    meta(name="description" content="六角西餐廳，切的美味，更對味")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    link(href='https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i', rel='stylesheet')
+    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.5.0/css/all.css', integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU', crossorigin='anonymous')
+    link(rel="stylesheet", href="stylesheets/all.css")
+    title 線上訂購 - 六角西餐廳
+    link(rel="shortcut icon", type="image/png", href="images/tab_icon.png", sizes="32x32")
+  body
+    .modal
+      button.modal_close(onclick="modalClose()")
+        i.fas.fa-times
+      .modal_card.opa
+        .modal_main
+          .modal_title
+            .logo
+              img(src="images/logo_l@svg.svg")
+            h3 享受美食好味道
+          form.login_form
+            fieldset.login_field
+              legend
+                h3 LOGIN
+              .input_area.mg_bottom
+                label(for="login_account") Email Address*
+                .input
+                  input#login_account(type="email" placeholder="test@gmail.com" required)
+                  span
+                    i.far.fa-envelope
+              .input_area
+                label(for="login_pass") Password*
+                .input
+                  input#login_pass(type="password" placeholder="Your password" required)
+                  span
+                    i.fas.fa-unlock-alt
+                .forget
+                  a(href="#" target="_blank") 忘記密碼?
+              .btn.login
+                button.signIn(type="submit") 登入
+                button.googleIn(type="submit") 以Google帳號登入
+            fieldset.register_field(disabled)
+              legend
+                h3.legend REGISTER
+              .input_area.mg_bottom
+                label(for="register_account") Email Address*
+                .input
+                  input#register_account(type="email" placeholder="test@gmail.com" required)
+                  span
+                    i.far.fa-envelope
+              .input_area.mg_bottom
+                label(for="register_pass") Password*
+                .input
+                  input#register_pass(type="password" placeholder="Your password" required)
+                  span
+                    i.fas.fa-unlock-alt
+              .input_area
+                label(for="confirm") Confirm*
+                .input
+                  input#confirm(type="password" placeholder="Confirm your password" required)
+                  span
+                    i.fas.fa-check-double
+              .policy
+                |註冊後，即同意 
+                a(href="#" target="_blank") 使用條款
+                |  和 
+                a(href="#" target="_blank") 隱私政策
+              .btn.register
+                button.signIn(type="submit") 註冊          
+        .modal_change
+          span 還沒有帳號嗎？
+          a(href="javascript:;" onclick="changeModal()") 立即註冊
+          
+    .wrap-all#app
+      nav
+        .topbar
+          h1.logo
+            a(href="index.html") 六角西餐廳
+          .top-menu
+            ul.hide
+              li
+                a(href="index.html#features" onclick="tapMenu()") 特色
+              li
+                a(href="index.html#chef" onclick="tapMenu()") 主廚
+              li
+                a(href="index.html#reserve" onclick="tapMenu()") 地圖
+              li
+                a(href="policy.html" onclick="tapMenu()") 使用條款
+              li
+                button.login_btn(onClick="modalShow()") 登入
+          .top-menuToggle-mobile
+            button.menu-toggle(onClick="tapMenu()")
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+      header#header
+        .banner
+          h2.logo
+            img(src="images/logo_w@svg.svg")
+          .banner_text
+            h2 咬一口就無法忘懷的漢堡
+            h3
+              |七夕絕對無法錯過的好滋味
+              br
+              i.fas.fa-utensils
+              |六角大漢堡
+              i.fas.fa-utensils
+      aside.sidebar
+        .bubble_list
+          ul
+            li.purchase
+              button(onclick="javascript:window.location.href='cart.html'")
+                .cart_icon
+                  img(src="images/cart.svg" width="32px" height="32px")
+            li.share
+              button
+                .share_icon
+                  img(src="images/share.svg" width="32px" height="32px")
+      aside.bottomBar-mobile.if-top
+        ul
+          li.purchase
+            button(onclick="javascript:window.location.href='cart.html'")
+              .cart_icon
+                .cart_num 0
+              .cart_icon
+                img(src="images/cart_w.svg" width="32px" height="32px")
+                | 結 帳 去
+          li.share
+            button
+              .cart_icon
+                img(src="images/share_w.svg" width="32px" height="32px")
+                | 分　享
+      .wrap
+        main#cart
+          section.category
+            h2
+              i.fab.fa-envira
+              |線上訂購美食
+            .series
+              ul
+                li(
+                    v-for="(category, index) in categories"
+                    @click="activate(index)"
+                    :class="[index === active ? 'active' : '']"
+                  )
+                  a(href="javascript:;") {{ category.title }}
+
+          section.meals
+            .meals-top
+              .search
+                input(type="text")
+                button.search_button
+                  i.fas.fa-search
+              .check
+                a(href="#")
+                  h4 結帳去
+                  .cart_icon
+                    i.fas.fa-shopping-cart
+                      .cart_num 0
+            .meals-card
+              ul
+                li.item(v-for="meal in content")
+                  a.top(href="#")
+                    .meals_pic
+                      img(:src="'images/' + meal.coverImage")
+                  .favorite
+                    i.far.fa-heart
+                  .hot(v-if="meal.hot")
+                    h3 熱銷美食
+                  .bottom
+                    h2.title
+                      |{{ meal.title }}
+                      br
+                      |<span class="engTitle">{{ meal.engTitle }}</span>
+                    .line
+                    h4.price
+                      i.fas.fa-dollar-sign
+                      |  {{ meal.price }}
+                    a.detail(href="#")
+                      h4 餐點介紹
+                    button.addToCart(onclick="addToCart()")
+                      h4
+                        i.fas.fa-shopping-cart
+                        |  加入購物車
+
+        footer.clearfix
+          .footer_item
+            .about
+              h3 關於 六角西餐廳
+              p.content Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio, voluptatem! Explicabo consequatur ullam aspernatur odit expedita deserunt adipisci nemo sint.
+            .contact
+              h3 聯絡方式
+              ul.content
+                li 高雄市中正五路到底
+                li +886 886 886
+                li service@hexschool.com
+          .footer_logo
+            .logo
+              img(src="images/logo_l@svg.svg")
+            .icon
+              i.fab.fa-google-plus-square
+              i.fab.fa-twitter-square
+              i.fab.fa-facebook-square
+
+  script(src="js/jquery-3.3.1.min.js")
+  script(src="js/vue.min.js")
+  script(src="js/all.js")

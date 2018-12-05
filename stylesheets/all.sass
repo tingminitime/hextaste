@@ -1,0 +1,1397 @@
+// --------reset.css-----------
+@import "reset.css"
+
+*,*:before,*:after
+  // -----layout reference-----
+  //outline: rgba(pink,.5) solid 1px
+  box-sizing: border-box
+
+// --------input reset-----------
+input, input[type="text"], input[type="reset"], input[type="button"], button
+  font-family: 'Roboto', 微軟正黑體
+  appearance: none
+input[type="number"]
+  -moz-appearance: textfield
+  &::-webkit-outer-spin-button, &::-webkit-inner-spin-button
+    appearance: none
+
+// --------button reset-----------
+button
+  cursor: pointer
+  background: transparent
+  border: none
+  &:focus
+    outline: none
+
+// --------img reset-----------
+img
+  max-width: 100%
+  height: auto
+
+// --------mixin-----------
+$main_dark: #3D1101
+$main_light: #EFE9E7
+$second_light: #FF5E45
+$icon_google: #EA4335
+$icon_twitter: #41ABE1
+$icon_facebook: #3A5795
+$text_grey: #666
+
+// --------a reset-----------
+a
+  text-decoration: none
+  color: $main_dark
+
+// --------clearfix-----------
+.clearfix:after
+  content: ""
+  display: table
+  clear: both
+  height: 0
+
+// --------body-----------
+html, body
+  font-family: 'Roboto', 微軟正黑體
+  color: #3d1101
+  background-color: $main_light
+  position: relative
+  height: 100%
+  -webkit-tap-highlight-color: transparent
+
+// --------view width-----------
+.wrap
+  max-width: 1170px
+  margin: 0 auto
+  position: relative
+
+// --------打開登入彈窗，固定背景-----------
+.modal_open
+  overflow: hidden
+  padding-right: 17px !important
+  @media(max-width: 991px)
+    padding-right: 0 !important
+
+// --------打開登入彈窗，模糊背景-----------
+.modal_blur
+  filter: blur(4px)
+  opacity: 0.5
+  transition: opacity .2s
+
+// ----------------modal彈出登入頁面-------------------
+.modal
+  position: fixed
+  display: none
+  z-index: 9999
+  top: 0
+  bottom: 0
+  right: 0
+  left: 0
+  text-align: center
+  background: transparent
+  overflow-x: hidden
+  overflow-y: auto
+  vertical-align: middle
+  &:before
+    content: ""
+    display: inline-block
+    height: 100%
+    vertical-align: middle
+  .modal_close
+    position: absolute
+    top: 50px
+    right: 50px
+    border: none
+    background: $second_light
+    border-radius: 50%
+    width: 40px
+    height: 40px
+    z-index: 10
+    @media(max-width: 369px)
+      top: 10px
+      right: 10px
+    i
+      position: absolute
+      left: 50%
+      top: 50%
+      transform: translate(-50%,-50%)
+      font-size: 24px
+      color: #fff
+      padding: 5px
+
+  .modal_card
+    display: inline-block
+    background: $main_light
+    width: 360px
+    border-top: 5px solid $second_light
+    border-radius: 5px
+    box-shadow: 2px 3px 8px 2px rgba(#000,.1)
+    vertical-align: middle
+    transform: translateY(-100px)
+    transition: all .3s
+    overflow: hidden
+    &.transparent
+      opacity: 0
+    @media(max-width: 369px)
+      width: 300px
+
+    // --------main主區塊-----------
+    .modal_main
+      padding: 0 30px
+
+    // --------title標語-----------
+    .modal_title
+      margin-top: 30px
+      h3
+        font-size: 20px
+        font-weight: bold
+        text-align: center
+        margin-top: 5px
+        margin-bottom: 30px
+    // --------登入區塊-----------
+    .login_form
+      position: relative
+      width: 660px
+      display: flex
+      justify-content: space-between
+      transition: .5s cubic-bezier(0.86, 0, 0.07, 1)
+      &.changeRegister
+        transform: translateX(-360px)
+      @media(max-width: 369px)
+        width: 600px
+      .login_field, .register_field
+        width: 300px
+        @media(max-width: 369px)
+          width: 240px
+        // --------legend標題-----------
+        legend
+          width: 100%
+          h3
+            display: flex
+            justify-content: center
+            align-items: center
+            font-size: 20px
+            font-weight: bold
+            text-align: center
+            padding: 15px 0 20px 0
+            &:before, &:after
+              content: ""
+              flex-grow: 1
+              border-top: 1px solid #000
+              background: #000
+            &:before
+              margin-right: 1rem
+            &:after
+              margin-left: 1rem
+
+        // --------input_area輸入區塊-----------
+        .input_area
+          &.mg_bottom
+            margin-bottom: 10px
+          label
+            display: block
+            margin-bottom: 3px
+            text-align: left
+          .input
+            position: relative
+            width: 100%
+            input
+              width: 100%
+              border: 1px solid #ccc
+              border-radius: 4px
+              padding: 10px 5px 10px 40px
+              font-size: 1rem
+              transition: .3s
+              box-shadow: none
+              &::placeholder
+                font-size: 12px
+                letter-spacing: 1px
+              &:focus
+                padding: 10px 5px 10px 10px
+                border: 1px solid #009fde
+                outline: none
+            span
+              position: absolute
+              display: block
+              left: 10px
+              top: 50%
+              transform: translateY(-50%)
+              color: rgba($main_dark,.5)
+
+          .forget
+            font-size: 14px
+            text-align: left
+            margin-top: 5px
+            a
+              display: inline-block
+              color: $second_light
+
+        .policy
+          font-size: 14px
+          text-align: left
+          margin-top: 5px
+          a
+            display: inline-block
+            color: $second_light
+        // --------登入、註冊-----------
+        .btn
+          .signIn, .googleIn
+            display: block
+            line-height: 20px
+            width: 100%
+            font-size: 1rem
+            font-weight: bold
+            color: #fff
+            border-radius: 5px
+            padding: 10px 0
+            margin: 15px 0
+            transition: .3s
+          .signIn
+            background: $second_light
+            &:hover
+              background: darken($second_light,10)
+          .googleIn
+            color: $icon_google
+            background: #fff
+            &:hover
+              color: #fff
+              background: $icon_google
+
+  // --------register註冊-----------
+  .modal_change
+    width: 100%
+    padding: 10px 0
+    background: darken($main_light,5)
+    a
+      font-size: 1rem
+      font-weight: bold
+      color: $second_light
+      
+// --------nav-----------
+nav
+  width: 100%
+  position: fixed
+  background: rgba(#000,.75)
+  z-index: 500
+  transition: .5s
+  &.at_top
+    background: transparent
+    
+  .topbar
+    max-width: 1680px
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin: 0 auto
+    padding: 0 40px
+    @media(max-width: 991px)
+      .top-menu
+        display: block
+      .top-menuToggle-mobile
+        display: block
+    
+  .logo a
+    display: block
+    width: 120px
+    height: 24px
+    background-image: url('../images/logo_w@svg.svg')
+    background-repeat: no-repeat
+    text-indent: 101%
+    white-space: nowrap
+    overflow: hidden
+
+  .top-menu
+    ul
+      display: flex
+      @media(max-width: 991px)
+        flex-direction: column
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        background: #fff
+        text-align: center
+        transition: .2s
+        &.hide
+          transform: translateY(-100%)
+    ul li
+      margin-left: 10px
+      @media(max-width: 991px)
+        margin: 0
+        &:nth-child(1), &:nth-child(2), &:nth-child(3)
+          border-bottom: 1px solid rgba(grey,.5)
+    li a
+      display: block
+      position: relative
+      font-size: 18px
+      font-weight: bold
+      letter-spacing: 3px
+      color: #fff
+      padding: 18px 25px
+      @media(max-width: 991px)
+        color: $main_dark
+      &:before
+        content: ""
+        position: absolute
+        width: 100%
+        height: 4px
+        bottom: 0
+        left: 0
+        background: $main_light
+        opacity: 0
+        transform-origin: center
+        transform: scale(0,1)
+        transition: .3s
+        @media(max-width: 991px)
+          display: none
+      &:hover
+        transition: .3s
+        background: rgba($main_light,.25)
+        &:before
+          opacity: 1
+          transform: scale(1,1)
+    li button
+      font-size: 18px
+      font-weight: bold
+      padding: 5px 15px
+      margin: 8px 10px 0 10px
+      color: #fff
+      background: $second_light
+      border-radius: 5px
+      transition: .3s
+      user-select: none
+      @media(max-width: 991px)
+        width: 100%
+        display: block
+        margin: 0
+        padding: 18px 25px
+        border-radius: 0
+      &:hover
+        background: darken($second_light,10)
+  
+  .top-menuToggle-mobile
+    display: none
+    margin: 16px 0
+    user-select: none
+    position: relative
+    .menu-toggle
+      display: block
+      position: relative
+      padding: 10px 30px
+      margin: -10px -30px
+    .icon-bar
+      display: block
+      background: #fff
+      width: 28px
+      height: 3px
+      border-radius: 10px
+      transition: .3s
+      &.dark-icon-bar
+        background: $main_dark
+      &.menu-open
+        &:first-child
+          transform-origin: 3px
+          transform: rotate(45deg)
+        &:nth-child(2)
+          opacity: 0
+        &:nth-child(3)
+          transform-origin: 3px
+          transform: rotate(-45deg)
+
+    .icon-bar + .icon-bar
+      margin-top: 5px
+
+// --------sidebar首頁漂浮-----------
+.sidebar
+  max-width: 1366px
+  margin-left: auto
+  margin-right: auto
+  display: flex
+  justify-content: flex-end
+  .bubble_list
+    position: fixed
+    transform: translateY(600px)
+    top: 0
+    transition: .3s
+    z-index: 1000
+    opacity: 0
+    padding-right: 15px
+    @media(max-width: 991px)
+      display: none
+    &.if-top
+      opacity: 1
+      transform: translateY(620px)
+    li
+      margin: 20px 0
+    button
+      background: rgba($main_light,.75)
+      border: 1px solid rgba($main_dark,.5)
+      border-radius: 50%
+      width: 60px
+      height: 60px
+      z-index: 999
+      @keyframes purchase_ani
+        0%
+          box-shadow: 0 0 rgba($main_dark,.75)
+        70%
+          box-shadow: 0 0 10px 12px rgba($main_dark,0)
+        100%
+          box-shadow: 0 0 0px 0px rgba($main_dark,0)
+      &:hover
+        animation: purchase_ani 1s infinite
+      &:focus
+        outline: none
+      .cart_icon, .share_icon
+        display: flex
+        justify-content: center
+        align-items: center
+
+// --------bottomBar(Mobile)-----------
+.bottomBar-mobile
+  display: none
+  position: fixed
+  bottom: 0
+  left: 0
+  right: 0
+  max-width: 100%
+  z-index: 1000
+  transition: .5s
+  &.if-top
+    transform: translateY(100%)
+  @media(max-width: 991px)
+    display: block
+  ul
+    display: flex
+    justify-content: space-between
+    width: 100%
+    li
+      display: flex
+      justify-content: center
+      background: $main_dark
+      width: 100%
+      padding: 5px 0
+      &.purchase
+        order: 2
+      &.share
+        order: 1
+        border-right: 1px solid #fff
+      button
+        .cart_icon, .share_icon
+          display: flex
+          flex-direction: row
+          justify-content: center
+          align-items: center
+          font-size: 1rem
+          color: #fff
+          img
+            margin: 0 5px
+        &:nth-child(1)
+          display: flex
+          flex-direction: row
+          .cart_num
+            background: $second_light
+            width: 20px
+            height: 20px
+            right: 10%
+            top: -20%
+            border-radius: 50%
+            font-family: 微軟正黑體
+            font-size: 16px
+            text-align: center
+            line-height: 20px
+            color: #fff
+
+// --------header-----------
+header
+  .banner
+    position: relative
+    height: 960px
+    background-image: url('../images/header_desktop@2x.png')
+    background-size: cover
+    background-position: center center
+    background-repeat: no-repeat
+    display: flex
+    flex-direction: column
+    justify-content: center
+    @media(max-width: 767px)
+      height: 738px
+      background-image: url('../images/header_mobile.png')
+    @media(max-width: 369px)
+      height: 568px
+
+  .logo
+    position: relative
+    margin: 50px auto
+    padding: 0 30px
+    img
+      height: 100px
+
+  .banner_text
+    width: 50%
+    margin: 50px auto
+    padding: 52px 0
+    background: rgba(#000,.35)
+    color: #fff
+    @media(max-width: 991px)
+      width: 75%
+    @media(max-width: 480px)
+      width: 100%
+    h2
+      font-size: 36px
+      text-align: center
+      margin-bottom: 16px
+      letter-spacing: 2px
+      @media(max-width: 480px)
+        font-size: 2rem
+      @media(max-width: 369px)
+        font-size: 1.5rem
+    h3
+      font-size: 18px
+      text-align: center
+      line-height: 1.5
+      letter-spacing: 1px
+      @media(max-width: 369px)
+        font-size: 1rem
+      i
+        margin: 0 5px
+
+// ----------------Main.index-------------------
+// --------feature秘訣-----------
+section#features
+  padding: 50px 0
+  .title
+    display: flex
+    justify-content: center
+    align-items: center
+    text-align: center
+    font-size: 24px
+    font-weight: bold
+    color: $main_dark
+    line-height: 1.5
+    &:before, &:after
+      content: ""
+      flex-grow: 1
+      //flex-grow，預設0，無彈性變化
+      max-width: 200px
+      border: none
+      border-top: 1px solid $main_dark
+      @media(max-width: 369px)
+        display: none
+    &:before
+      margin: 0 1rem 0 3rem
+      @media(max-width: 480px)
+        margin: 0 1rem 0 1rem
+    &:after
+      margin: 0 3rem 0 1rem
+      @media(max-width: 480px)
+        margin: 0 1rem 0 1rem
+
+  .tips
+    display: flex
+    flex-direction: row
+    justify-content: center
+    margin-top: 50px
+    @media(max-width: 767px)
+      flex-direction: column
+    li
+      width: 33.3333%
+      display: flex
+      flex-direction: column
+      align-items: center
+      @media(max-width: 767px)
+        width: 100%
+        & + li
+          margin-top: 60px
+    img
+      display: block
+      border-radius: 50%
+    h3
+      font-size: 18px
+      font-weight: bold
+      color: $main_dark
+      margin: 20px 0 12px 0
+      text-align: center
+      @media(max-width: 767px)
+        width: 100%
+        font-size: 24px
+    p
+      color: $main_dark
+      text-align: justify
+      line-height: 1.2
+      padding: 0 30px
+      @media(max-width: 767px)
+        width: 75%
+
+// --------chef主廚-----------
+section#chef
+  background: $main_dark
+  display: flex
+  flex-direction: row
+  justify-content: flex-start
+  align-items: center
+  @media(max-width: 767px)
+    flex-direction: column
+  .chef-img
+    margin-left: 42px
+    background-image: url('../images/main_chef_brown.png')
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: center 0%
+    width: 470px
+    height: 460px
+    @media(max-width: 991px)
+      width: 373px
+    @media(max-width: 767px)
+      width: 100%
+      margin-left: 0
+  .chef_intro
+    max-width: 560px
+    color: $main_light
+    margin: 20px 80px 20px 25px
+    @media(max-width: 991px)
+      max-width: 50%
+      margin: 20px 40px 20px 25px
+    @media(max-width: 767px)
+      margin: 20px 30px 20px 30px
+      max-width: 100%
+    @media(max-width: 369px)
+      margin: 20px 20px 20px 20px
+    h2
+      font-size: 20px
+      line-height: 1.2
+      span.engName
+        font-size: 1rem
+    p
+      margin-top: 16px
+      line-height: 1.4
+      @media(max-width: 991px)
+        font-size: 14px
+
+// --------comment評論-----------
+section#comment
+  padding: 50px 0
+  .title
+    font-size: 24px
+    font-weight: bold
+    text-align: center
+
+  .criticList
+    display: flex
+    justify-content: space-between
+    flex-direction: row
+    padding: 0 32px
+    margin-top: 2rem
+    @media(max-width: 767px)
+      flex-direction: column
+      align-items: center
+    li
+      max-width: 300px
+      padding-left: 67px
+      margin: 0 10px
+      @media(max-width: 767px)
+        max-width: 100%
+        & + li
+          margin-top: 20px
+    h3
+      font-size: 18px
+      text-indent: -67px
+      img
+        border-radius: 50%
+        vertical-align: middle
+        margin-right: 13px
+      .critic
+        font-weight: bold
+
+    p
+      padding-left: 13px
+      line-height: 1.5
+    h4
+      margin-top: 1rem
+      text-align: right
+      line-height: 1.5
+  
+// --------reserve訂位-----------
+section#reserve
+  padding: 50px 0
+  background: #F6F4F3
+
+  .title
+    text-align: center
+    font-size: 24px
+    font-weight: bold
+    line-height: 1.3
+
+  .reserve_block
+    display: flex
+    justify-content: space-between
+    flex-direction: row
+    padding: 0 42px
+    margin-top: 38px
+    @media(max-width: 767px)
+      flex-direction: column
+      align-items: center
+
+  .map_area
+    width: 50%
+    background-image: url('../images/Map.png')
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: 0% center
+    height: auto
+    @media(max-width: 767px)
+      width: 100%
+      height: 386px
+      background-position: 25% center
+      margin-bottom: 30px
+        
+
+  // --------姓名、電話、信箱-----------
+  .form_area
+    position: relative
+    width: 50%
+    margin-left: 20px
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    @media(max-width: 767px)
+      width: 100%
+      margin-left: 0
+    label
+      display: block
+      font-size: 1rem
+      margin-bottom: 6px
+    .info_input
+      input
+        display: block
+        width: 100%
+        padding: 5px 14px
+        font-family: 微軟正黑體
+        font-size: 18px
+        margin-bottom: 12px
+        border: 1px solid #ccc
+        border-radius: 3px
+        &::placeholder
+          font-size: 16px
+        @media(max-width: 480px)
+          padding: 15px 14px
+        @media(max-width: 369px)
+          padding: 10px 14px
+
+      // --------人數-----------
+      .people_number
+        margin: 20px 0
+        label
+          pointer-events: none
+        .people_number_input
+          display: flex
+          flex-direction: row
+          justify-content: flex-start
+          align-items: center
+          @media(max-width: 480px)
+            justify-content: center
+          #input_number
+            width: 80px
+            margin: 0 20px
+            text-align: center
+            outline: none
+            //pointer-events: none
+            @media(max-width: 480px)
+              width: 100%
+            @media(max-width: 369px)
+              padding: 8px 0
+          .fa-minus, .fa-plus
+            padding: 6px 22px
+            color: $main_dark
+            border: 1px solid rgba($main_dark,.75)
+            border-radius: 5px
+            cursor: pointer
+            transition: .2s
+            user-select: none
+            &:hover
+              color: #fff
+              border: 1px solid rgba($main_dark,0)
+              background: $main_dark
+            &:active
+              transform: translate(1px,2px)
+            @media(max-width: 480px)
+              padding: 16px 22px
+            @media(max-width: 369px)
+              padding: 10px 22px
+
+    // --------素食-----------
+    input[type="radio"]
+      display: none
+    .vege_input
+      display: flex
+      justify-content: flex-start
+      @media(max-width: 480px)
+        justify-content: space-between
+      input[type="radio"] + label
+        display: inline-block
+        font-size: 18px
+        text-align: center
+        border: 1px solid rgba($main_dark,.75)
+        border-radius: 5px
+        padding: 5px 20px
+        margin-right: 15px
+        cursor: pointer
+        transition: .2s
+        @media(max-width: 480px)
+          width: 50%
+          padding: 15px 20px
+          margin-right: 0
+          border-radius: 0
+          &.no
+            border-top-left-radius: 5px !important
+            border-bottom-left-radius: 5px !important
+            border-right: none
+          &.yes
+            border-top-right-radius: 5px !important
+            border-bottom-right-radius: 5px !important
+        @media(max-width: 369px)
+          padding: 10px 20px
+        &:hover
+          font-weight: bold
+          color: #fff
+          border: 1px solid rgba($main_dark,0)
+          background: rgba($main_dark,.5)
+        &:active
+          transform: translate(1px,2px)
+          @media(max-width: 480px)
+            transform: none
+
+      input[type="radio"]:checked + label
+        font-weight: bold
+        color: #fff
+        border: 1px solid rgba($main_dark,0)
+        background: $main_dark
+        
+
+    // --------送出、取消-----------
+    .form_submit
+      max-width: 100%
+      display: flex
+      justify-content: flex-end
+      margin-top: 1rem
+      @media(max-width: 767px)
+        justify-content: space-around
+      @media(max-width: 480px)
+        margin-top: 1.5rem
+      input
+        display: inline-block
+        width: 80px
+        font-size: 18px
+        text-align: center
+        color: #fff
+        border: none
+        border-radius: 5px
+        padding: 5px 0
+        margin-bottom: 0
+        cursor: pointer
+        transition: .1s
+        &:active
+          transform: translate(1px,2px)
+        &:focus
+          outline: none
+        @media(max-width: 767px)
+          width: 50%
+          padding: 10px 0
+        @media(max-width: 480px)
+          width: 50%
+      input:nth-child(1)
+        background: #aaa
+        &:hover
+          background: darken(#aaa,10)
+      input:nth-child(2)
+        background-color: $second_light
+        margin-left: 10px
+        &:hover
+          background: darken($second_light,10)
+
+// ----------------Main.cart-------------------
+#cart
+  display: flex
+  flex-direction: row
+  justify-content: flex-start
+  flex-grow: 1
+  margin: 0 10px
+  padding: 50px 0
+  @media(max-width: 991px)
+    flex-direction: column
+
+  // --------category左欄-----------
+  .category
+    width: 20%
+    margin-right: 2%
+    @media(max-width: 991px)
+      width: 100%
+    h2
+      font-size: 24px
+      font-weight: bold
+      margin-bottom: 20px
+      @media(max-width: 991px)
+        font-size: 28px
+        margin-bottom: 30px
+      @media(max-width: 767px)
+        font-size: 2rem
+      i
+        font-size: 2rem
+        margin-right: 15px
+        transform: scaleX(-1)
+        animation: leaf_ani 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate
+      @keyframes leaf_ani
+        0%
+          transform: scaleX(-1)
+        100%
+          transform: scaleX(1)
+    .series
+      margin-bottom: 30px
+      ul
+        display: flex
+        flex-direction: column
+        @media(max-width: 991px)
+          flex-direction: row
+          justify-content: space-around
+          flex-wrap: wrap
+      li
+        border-bottom: .5px solid $main_dark
+        @media(max-width: 991px)
+          width: 25%
+          border-bottom: 1px solid $main_dark
+        @media(max-width: 767px)
+          width: 50%
+        @media(max-width: 369px)
+          width: 100%
+        &.active
+          background-color: $main_dark
+          a
+            color: #fff
+        a
+          display: block
+          font-size: 1rem
+          line-height: 2
+          padding: 0 8px 
+          transition: .2s
+          @media(max-width: 991px)
+            text-align: center
+            padding: 5px 8px
+          @media(max-width: 767px)
+            font-size: 18px
+          @media(min-width: 992px)
+            &:hover
+              color: #fff
+              background-color: rgba($main_dark,.25)
+
+  
+  // --------meals右欄-----------
+  .meals
+    width: 78%
+    @media(max-width: 991px)
+      width: 100%
+    .meals-top
+      display: flex
+      justify-content: space-between
+      align-items: center
+      @media(max-width: 991px)
+        justify-content: center
+
+      // --------search搜尋-----------
+      .search
+        width: 480px
+        display: flex
+        align-items: center
+        position: relative
+        @media(max-width: 991px)
+          max-width: 50%
+        @media(max-width: 767px)
+          max-width: 75%
+        input
+          width: 100%
+          height: 100%
+          font-size: 20px
+          color: $main_dark
+          padding: 4px 10px
+          background: transparent
+          border: 2px solid $main_dark
+          border-radius: 5px
+            
+        .search_button
+          position: absolute
+          top: 0
+          right: 0
+          cursor: pointer
+          background: $main_dark
+          width: 50px
+          height: 36px
+          border-radius: 5px
+          transition: .2s
+          &:hover
+            i
+              transform: scaleX(-1)
+          i
+            transition: .2s
+            font-size: 20px
+            color: #fff
+            @media(max-width: 991px)
+              font-size: 24px
+
+      // --------check結帳-----------
+      .check
+        display: flex
+        align-items: center
+        @media(max-width: 991px)
+          display: none
+        h4
+          display: inline-block
+          font-weight: bold
+          padding: 0 12px
+          border-right: .5px solid $main_dark
+          font-size: 20px
+          font-weight: bold
+          white-space: nowrap
+        .cart_icon
+          display: inline-block
+          i
+            position: relative
+            font-size: 28px
+            padding: 0 18px
+          .cart_num
+            position: absolute
+            background: $second_light
+            width: 20px
+            height: 20px
+            right: 10%
+            top: -20%
+            border-radius: 50%
+            font-family: 微軟正黑體
+            font-size: 16px
+            text-align: center
+            line-height: 20px
+            color: #fff
+            z-index: 99
+
+    .meals-card
+      margin-top: 30px
+      ul
+        display: flex
+        flex-direction: row
+        flex-wrap: wrap
+        @media(max-width: 480px)
+          flex-direction: column
+          align-items: center
+
+      // --------item餐點方塊-----------
+      .item
+        width: 280px
+        margin-left: 1%
+        margin-right: 1%
+        margin-bottom: 20px
+        position: relative
+        box-shadow: 2px 2px 10px 0px rgba(#000,.2)
+        &:hover
+          .meals_pic img
+            transform: scale(1.2)
+        @media(max-width: 991px)
+          width: 48%
+        @media(max-width: 480px)
+          width: 300px
+        .top
+          display: block
+          position: relative
+          overflow: hidden
+          width: 100%
+          .meals_pic
+            position: relative
+            z-index: -1
+            width: 100%
+            height: 100%
+            img
+              transition: transform .4s
+              width: 100%
+              height: 100%
+        .favorite
+          display: inline-block
+          padding: 10px
+          position: absolute
+          z-index: 50
+          top: 0
+          cursor: pointer
+          i
+            font-size: 24px
+            color: #fff
+        
+        // --------hot緞帶-----------
+        .hot
+          position: absolute
+          right: -8px
+          top: -8px
+          width: 100px
+          height: 100px
+          overflow: hidden
+          h3
+            font-weight: bold
+            background: #00CC99
+            color: #ffffff
+            text-align: center
+            position: relative
+            z-index: 1
+            top: 20px
+            right: 10px
+            padding: 5px 0
+            width: 150px
+            transform: rotate(45deg)
+          &:before
+            content: ""
+            position: absolute
+            z-index: -2
+            top: 50%
+            left: 50%
+            transform: translate(-50%,-50%) rotate(45deg)
+            width: 120px
+            height: 30px
+            background: darken(#00CC99,10)
+
+        .bottom
+          display: flex
+          flex-direction: column
+          align-items: center
+          padding: 20px 0
+          .title
+            margin-bottom: 10px
+            font-size: 24px
+            font-weight: bold
+            letter-spacing: 1px
+            text-align: center
+            .engTitle
+              font-size: 12px
+
+          .line
+            width: 40%
+            border-top: 1px solid $main_dark
+
+          .price
+            font-size: 20px
+            font-weight: bold
+            font-style: italic
+            text-align: center
+            margin: 20px 0
+          
+          .detail
+            background: #00CC99
+            border-radius: 5px
+            padding: 5px 10px
+            margin-bottom: 15px
+            h4
+              font-size: 20px
+              font-weight: bold
+              letter-spacing: 2px
+              color: #fff
+          
+          // --------加入購物車-----------
+          .addToCart
+            background: transparent
+            border: none
+            border: 2px solid $second_light
+            border-radius: 8px
+            outline: none
+            padding: 5px 40px
+            cursor: pointer
+            transition: .2s
+            position: relative
+            overflow: hidden
+            &:before
+              content: ""
+              position: absolute
+              width: 250px
+              height: 50px
+              background: $second_light
+              border-radius: 20px
+              left: -10%
+              top: 50%
+              transform: translate(-100%,-50%)
+              transition: .5s
+              z-index: 49
+            &.active
+              background: $second_light
+              h4
+                color: #fff
+            &:hover
+              h4
+                color: #fff
+                font-weight: bold
+              &:before
+                transform: translate(0%,-50%)
+            &:active
+              transform: translate(1px,2px)
+            h4
+              font-size: 20px
+              color: $second_light
+              transition: .5s
+              position: relative
+              user-select: none
+              z-index: 52
+
+// ----------------Main.policy-------------------
+#policy
+  padding: 60px 0
+  display: flex
+  flex-direction: column
+  align-items: center
+
+  // --------title標語-----------
+  .title
+    h3
+      font-size: 20px
+      font-weight: bold
+      text-align: center
+      margin-top: 5px
+      margin-bottom: 60px
+      @media(max-width: 991px)
+        margin-bottom: 30px
+  // --------policy-----------
+  .policy-container
+    max-width: 1170px
+    min-height: 360px
+    margin: 0 30px
+    @media(max-width: 991px)
+      max-width: 620px
+      min-height: 320px
+    ul.tabs
+      display: flex
+      justify-content: flex-start
+      width: 100%
+      border-bottom: 1px solid rgba($main_dark,.25)
+      height: 42px
+      @media(max-width: 767px)
+        justify-content: space-between
+      li
+        height: 42px
+        font-size: 20px
+        font-weight: bold
+        text-align: center
+        background: $main_light
+        padding: 12px 15px 10px 15px
+        cursor: pointer
+        border-top: 1px solid rgba($main_dark,.25)
+        border-left: 1px solid rgba($main_dark,.25)
+        border-bottom: 1px solid rgba($main_dark,.25)
+        border-top-left-radius: 6px
+        border-top-right-radius: 6px
+        position: relative
+        overflow: hidden
+        &.active
+          background: #fff
+          color: $main_dark
+          border-top: none
+          border-bottom: 1px solid #fff
+        &.tab-last
+          border-right: 1px solid rgba($main_dark,.25)
+        .line
+          position: absolute
+          width: 0
+          height: 4px
+          background: $second-light
+          top: 0
+          left: 0
+        @media(max-width: 991px)
+          padding: 12px 30px 10px 30px
+        @media(max-width: 767px)
+          flex-basis: 100%
+        @media(max-width: 369px)
+          padding: 12px 20px 10px 20px
+          font-size: 18px
+    .tab-container
+      background: #fff
+      border: 1px solid rgba($main_dark,.25)
+      border-top: none
+      border-bottom-left-radius: 10px
+      border-bottom-right-radius: 10px
+      border-bottom-right-radius: 10px
+      overflow: hidden
+      .tab-content
+        padding: 20px
+        p
+          line-height: 1.3
+
+
+// --------footer-----------
+footer
+  padding: 50px 42px
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  align-items: flex-start
+  @media(max-width: 991px)
+    padding: 50px 42px 80px 42px
+    flex-direction: column
+    align-items: center
+  @media(max-width: 480px)
+    align-items: flex-start
+  .footer_item
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    @media(max-width: 480px)
+      flex-direction: column
+    .about, .contact
+      max-width: 300px
+      float: left
+      @media(max-width: 991px)
+        max-width: 400px
+      @media(max-width: 480px)
+        width: 100%
+      h3
+        font-size: 24px
+        font-weight: bold
+        text-align: left
+      .content
+        margin-top: 1rem
+        line-height: 1.5
+        li
+          list-style: disc
+          list-style-position: inside
+    .about
+      margin-right: 20px
+      @media(max-width: 991px)
+        margin-right: 40px
+      @media(max-width: 480px)
+        margin-bottom: 1rem
+  .footer_logo
+    @media(max-width: 991px)
+      margin-top: 50px
+      display: flex
+      flex-direction: column
+    @media(max-width: 480px)
+      float: left
+      margin-bottom: 30px
+    .icon
+      float: right
+      margin-top: 24px
+      @media(max-width: 991px)
+        text-align: center
+      @media(max-width: 480px)
+        text-align: left
+        float: left
+      i
+        font-size: 2rem
+        cursor: pointer
+        &:hover
+          animation: icon_ani .3s infinite alternate
+        & + i
+          margin-left: 12px
+        @media(max-width: 991px)
+          font-size: 3rem
+          margin-left: 0
+          & + i
+            margin-left: 1rem
+      i.fab.fa-google-plus-square
+        color: $icon_google
+      i.fab.fa-twitter-square
+        color: $icon_twitter
+      i.fab.fa-facebook-square
+        color: $icon_facebook
+      
+      @keyframes icon_ani
+        0%
+          transform: translateY(0px)
+        100%
+          transform: translateY(-5px)

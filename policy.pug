@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, user-scalable=no")
+    meta(name="description" content="六角西餐廳，切的美味，更對味")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    link(href='https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i', rel='stylesheet')
+    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.5.0/css/all.css', integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU', crossorigin='anonymous')
+    link(rel="stylesheet", href="stylesheets/all.css")
+    title 使用條款與隱私政策 - 六角西餐廳
+    link(rel="shortcut icon", type="image/png", href="images/tab_icon.png", sizes="32x32")
+  body
+    .modal
+      button.modal_close(onclick="modalClose()")
+        i.fas.fa-times
+      .modal_card.opa
+        .modal_main
+          .modal_title
+            .logo
+              img(src="images/logo_l@svg.svg")
+            h3 享受美食好味道
+          form.login_form
+            fieldset.login_field
+              legend
+                h3 LOGIN
+              .input_area.mg_bottom
+                label(for="login_account") Email Address*
+                .input
+                  input#login_account(type="email" placeholder="test@gmail.com" required)
+                  span
+                    i.far.fa-envelope
+              .input_area
+                label(for="login_pass") Password*
+                .input
+                  input#login_pass(type="password" placeholder="Your password" required)
+                  span
+                    i.fas.fa-unlock-alt
+                .forget
+                  a(href="#" target="_blank") 忘記密碼?
+              .btn.login
+                button.signIn(type="submit") 登入
+                button.googleIn(type="submit") 以Google帳號登入
+            fieldset.register_field(disabled)
+              legend
+                h3.legend REGISTER
+              .input_area.mg_bottom
+                label(for="register_account") Email Address*
+                .input
+                  input#register_account(type="email" placeholder="test@gmail.com" required)
+                  span
+                    i.far.fa-envelope
+              .input_area.mg_bottom
+                label(for="register_pass") Password*
+                .input
+                  input#register_pass(type="password" placeholder="Your password" required)
+                  span
+                    i.fas.fa-unlock-alt
+              .input_area
+                label(for="confirm") Confirm*
+                .input
+                  input#confirm(type="password" placeholder="Confirm your password" required)
+                  span
+                    i.fas.fa-check-double
+              .policy
+                |註冊後，即同意 
+                a(href="#" target="_blank") 使用條款
+                |  和 
+                a(href="#" target="_blank") 隱私政策
+              .btn.register
+                button.signIn(type="submit") 註冊          
+        .modal_change
+          span 還沒有帳號嗎？
+          a(href="javascript:;" onclick="changeModal()") 立即註冊
+
+    .wrap-all#app
+      nav
+        .topbar
+          h1.logo
+            a(href="index.html") 六角西餐廳
+          .top-menu
+            ul.hide
+              li
+                a(href="index.html#features" onclick="tapMenu()") 特色
+              li
+                a(href="index.html#chef" onclick="tapMenu()") 主廚
+              li
+                a(href="index.html#reserve" onclick="tapMenu()") 地圖
+              li
+                a(href="policy.html" onclick="tapMenu()") 使用條款
+              li
+                button.login_btn(onclick="modalShow()") 登入
+          .top-menuToggle-mobile
+            button.menu-toggle(onclick="tapMenu()")
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+      header#header
+        .banner
+          h2.logo
+            img(src="images/logo_w@svg.svg")
+          .banner_text
+            h2 咬一口就無法忘懷的漢堡
+            h3
+              |七夕絕對無法錯過的好滋味
+              br
+              i.fas.fa-utensils
+              |六角大漢堡
+              i.fas.fa-utensils
+      aside.sidebar
+        .bubble_list
+          ul
+            li.purchase
+              button(onclick="javascript:window.location.href='cart.html'")
+                .cart_icon
+                  img(src="images/cart.svg" width="32px" height="32px")
+            li.share
+              button
+                .share_icon
+                  img(src="images/share.svg" width="32px" height="32px")
+      aside.bottomBar-mobile.if-top
+        ul
+          li.purchase
+            button(onclick="javascript:window.location.href='cart.html'")
+              .cart_icon
+                img(src="images/cart_w.svg" width="32px" height="32px")
+                | 購 物 車
+          li.share
+            button
+              .cart_icon
+                img(src="images/share_w.svg" width="32px" height="32px")
+                | 分　享
+                
+      .wrap
+        main#policy
+          .title
+            .logo
+              img(src="images/logo_l@svg.svg")
+            h3 享受美食好味道
+          .policy-container
+            ul.tabs
+              li(data-num="tab1").active 使用條款
+                .line
+              li(data-num="tab2") 隱私政策
+                .line
+            .tab-container
+              .tab-content.tab1
+                p Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae dolorum laudantium, ratione odit cupiditate magni sit hic nulla qui iste commodi at fugiat. Eveniet, libero nisi hic saepe cum velit rerum at excepturi sint quae culpa neque, tempora quibusdam autem corporis consectetur possimus ea. Ipsum esse non sapiente quo harum optio pariatur. Incidunt assumenda beatae earum, laboriosam perferendis corporis, nesciunt amet autem harum esse quo sunt itaque? Praesentium nam distinctio labore est ullam unde nisi voluptatibus qui porro asperiores dignissimos explicabo, alias repellat adipisci id non sapiente maiores reprehenderit eum necessitatibus. Nisi earum ad beatae aliquid perferendis. At est corrupti, modi labore excepturi debitis? Repellat alias similique quae neque sunt a dolores id inventore possimus optio? Consequatur, quaerat beatae quod quia ducimus possimus sint? Natus cum maxime quod sapiente minus iusto provident veritatis incidunt. Recusandae blanditiis libero quis, maiores deleniti dolor! Iste consequuntur fuga reprehenderit facilis. Impedit nisi repellat unde eligendi! Voluptates similique, error maiores, vel eveniet harum rerum ipsa numquam nostrum officiis dolorum labore? Molestias, minima eaque rerum inventore odio officia libero doloremque quia explicabo tempora dolorem dolore deleniti repellendus, blanditiis magnam praesentium expedita delectus fugit corrupti adipisci dolorum. Accusantium dignissimos fugit maiores sed excepturi necessitatibus neque temporibus inventore.
+              .tab-content.tab2
+                p Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi eaque molestias quibusdam dicta numquam odio placeat facere, nihil animi illum adipisci? Quo saepe ipsam aliquam numquam minus officiis doloremque repudiandae incidunt rerum nihil deserunt debitis consequatur corrupti est voluptatibus corporis, ipsa nisi voluptate ea error, sequi asperiores sapiente alias totam? Ducimus dolor deserunt molestiae, hic, quaerat eveniet vitae qui ex animi at sint harum fugiat! Optio ea autem mollitia quo hic eius modi omnis possimus vitae. Quis, accusamus modi illum molestiae eum illo, provident maiores laborum eaque sapiente iure similique odit quam! Et nam debitis itaque molestias molestiae incidunt minus mollitia. Deserunt, ut ad. Magni suscipit quia explicabo eaque, temporibus quas eveniet alias cumque. Quaerat doloribus porro consectetur excepturi pariatur exercitationem cum minus, voluptatibus corrupti? Dolore veniam, iste quas pariatur officia deleniti cupiditate fugit voluptates, iusto quaerat mollitia commodi! Harum eos laudantium quisquam et consequatur. Aperiam vitae dignissimos deleniti aut blanditiis, soluta quo qui explicabo animi sunt cum incidunt facere atque, eos obcaecati. Aperiam, cum tempore similique autem temporibus delectus illo doloribus atque exercitationem a corporis at impedit earum veritatis perferendis consectetur quam quisquam, nihil vero quas omnis! Explicabo in similique, sunt a dicta consequatur quasi? Numquam quasi dolores libero illum illo quos eveniet accusantium veniam assumenda animi nesciunt voluptatum magnam, recusandae necessitatibus. Eos placeat aliquam dolore sed ex ducimus libero a exercitationem magni sapiente inventore corrupti aut architecto, ipsa debitis alias est, quo fuga adipisci reprehenderit recusandae illum neque nostrum? Quasi non laborum, eveniet itaque quibusdam omnis quam recusandae!
+          
+          
+        footer.clearfix
+          .footer_item
+            .about
+              h3 關於 六角西餐廳
+              p.content Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio, voluptatem! Explicabo consequatur ullam aspernatur odit expedita deserunt adipisci nemo sint.
+            .contact
+              h3 聯絡方式
+              ul.content
+                li 高雄市中正五路到底
+                li +886 886 886
+                li service@hexschool.com
+          .footer_logo
+            .logo
+              img(src="images/logo_l@svg.svg")
+            .icon
+              i.fab.fa-google-plus-square
+              i.fab.fa-twitter-square
+              i.fab.fa-facebook-square
+
+  script(src="js/jquery-3.3.1.min.js")
+  script(src='js/vue.min.js')
+  script(src="js/all.js")

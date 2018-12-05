@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, user-scalable=no")
+    meta(name="description" content="六角西餐廳，切的美味，更對味")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    link(href='https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i', rel='stylesheet')
+    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.5.0/css/all.css', integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU', crossorigin='anonymous')
+    link(rel="stylesheet", href="stylesheets/all.css")
+    title 六角西餐廳
+    link(rel="shortcut icon", type="image/png", href="images/tab_icon.png", sizes="32x32")
+  body
+    .modal
+      button.modal_close(onclick="modalClose()")
+        i.fas.fa-times
+      .modal_card.transparent
+        .modal_main
+          .modal_title
+            .logo
+              img(src="images/logo_l@svg.svg")
+            h3 享受美食好味道
+          form.login_form
+            fieldset.login_field
+              legend
+                h3 LOGIN
+              .input_area.mg_bottom
+                label(for="login_account") Email Address*
+                .input
+                  input#login_account(type="email" placeholder="test@gmail.com" required)
+                  span
+                    i.far.fa-envelope
+              .input_area
+                label(for="login_pass") Password*
+                .input
+                  input#login_pass(type="password" placeholder="Your password" required)
+                  span
+                    i.fas.fa-unlock-alt
+                .forget
+                  a(href="#" target="_blank") 忘記密碼?
+              .btn.login
+                button.signIn(type="submit") 登入
+                button.googleIn(type="submit") 以Google帳號登入
+            fieldset.register_field(disabled)
+              legend
+                h3.legend REGISTER
+              .input_area.mg_bottom
+                label(for="register_account") Email Address*
+                .input
+                  input#register_account(type="email" placeholder="test@gmail.com" required)
+                  span
+                    i.far.fa-envelope
+              .input_area.mg_bottom
+                label(for="register_pass") Password*
+                .input
+                  input#register_pass(type="password" placeholder="Your password" required)
+                  span
+                    i.fas.fa-unlock-alt
+              .input_area
+                label(for="confirm") Confirm*
+                .input
+                  input#confirm(type="password" placeholder="Confirm your password" required)
+                  span
+                    i.fas.fa-check-double
+              .policy
+                |註冊後，即同意 
+                a(href="policy.html" target="_blank") 使用條款
+                |  和 
+                a(href="policy.html" target="_blank") 隱私政策
+              .btn.register
+                button.signIn(type="submit") 註冊          
+        .modal_change
+          span 還沒有帳號嗎？
+          a(href="javascript:;" onclick="changeModal()") 立即註冊
+
+    .wrap-all#app
+      nav
+        .topbar
+          h1.logo
+            a(href="#header") 六角西餐廳
+          .top-menu
+            ul.hide
+              li
+                a(href="#features" onclick="tapMenu()") 特色
+              li
+                a(href="#chef" onclick="tapMenu()") 主廚
+              li
+                a(href="#reserve" onclick="tapMenu()") 地圖
+              li
+                a(href="policy.html" onclick="tapMenu()") 使用條款
+              li
+                button.login_btn(onclick="modalShow()") 登入
+          .top-menuToggle-mobile
+            button.menu-toggle(onClick="tapMenu()")
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+      header#header
+        .banner
+          h2.logo
+            img(src="images/logo_w@svg.svg")
+          .banner_text
+            h2 咬一口就無法忘懷的漢堡
+            h3
+              |七夕絕對無法錯過的好滋味
+              br
+              i.fas.fa-utensils
+              |六角大漢堡
+              i.fas.fa-utensils
+      aside.sidebar
+        .bubble_list
+          ul
+            li.purchase
+              button(onclick="javascript:window.location.href='cart.html'")
+                .cart_icon
+                  img(src="images/cart.svg" width="32px" height="32px")
+            li.share
+              button
+                .share_icon
+                  img(src="images/share.svg" width="32px" height="32px")
+      aside.bottomBar-mobile.if-top
+        ul
+          li.purchase
+            button(onclick="javascript:window.location.href='cart.html'")
+              .cart_icon
+                img(src="images/cart_w.svg" width="32px" height="32px")
+                | 購 物 車
+          li.share
+            button
+              .cart_icon
+                img(src="images/share_w.svg" width="32px" height="32px")
+                | 分　享
+
+      .wrap
+        main.index
+          section#features
+            h2.title
+              |客人總是在詢問
+              br
+              |這麼好吃的秘訣是什麼
+            ul.tips
+              li
+                img(src="images/feature_1.png")
+                h3 台灣本土蔬菜
+                p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio repudiandae aut molestiae laborum sit! Voluptatibus, consectetur. Dolore suscipit saepe assumenda in velit corrupti provident ducimus!
+              li
+                img(src="images/feature_2.png")
+                h3 專業米其林廚師
+                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita hic asperiores blanditiis. Deserunt soluta eligendi similique rem totam corrupti nihil odio nam inventore voluptas, quae architecto ab eos? Consequatur, cumque.
+              li
+                img(src="images/feature_3.png")
+                h3 對於專業不能退讓
+                p Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi at dolorem aspernatur iste error cum, omnis quibusdam quam aliquam. Molestiae.
+          section#chef
+            .chef-img
+            .chef_intro
+              h2
+                |今日主廚：帕金森．梅在帕
+                br
+                |<span class="engName">Today Chef : Mei Zai Pa</span>
+              p Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam doloremque exercitationem vel impedit enim corrupti veritatis ipsam eum aliquam repellendus ex in neque fuga sit voluptatem explicabo, molestias modi. Quibusdam laborum assumenda deserunt. Qui illo repellat voluptas nulla cupiditate, quaerat, rem atque velit hic ab necessitatibus, sit officia aperiam modi alias ipsa repellendus quasi nisi minus quisquam similique a eius? Explicabo dolores atque laudantium, porro dignissimos error placeat ea id?
+          section#comment
+            h2.title 聽聽別人的感想
+            ul.criticList
+              li(v-for="commentFigure in commentList")
+                h3
+                  img(:src="'images/' + commentFigure.avatar")
+                  span.critic {{commentFigure.critic}}
+                p {{commentFigure.comment}}
+                h4 {{commentFigure.career}}
+          section#reserve
+            h2.title
+              |我們的位置不太夠坐
+              br
+              |要不要先訂位呢?
+            .reserve_block
+              .map_area
+              form.form_area
+                .info_input
+                  label(for="input_name") 姓名
+                  input#input_name(type="text" name="Name" placeholder="您的姓名")
+                  label(for="input_tel") 電話
+                  input#input_tel(type="tel" name="Tel" placeholder="您的手機號碼")
+                  label(for="input_mail") 信箱
+                  input#input_mail(type="email" name="Mail" placeholder="test@gmail.com")
+                  .people_number
+                    label(for="input_number") 人數
+                    .people_number_input
+                      i.fas.fa-minus
+                      input#input_number(type="number" step="1" value="1" min="1" max="12")
+                      i.fas.fa-plus
+                .vege
+                  label 是否需要素食
+                  .vege_input
+                    input#input_no(type="radio" name="Vegetarian" value="yes")
+                    label.no(for="input_no") 否
+                    input#input_yes(type="radio" name="Vegetarian" value="no")
+                    label.yes(for="input_yes") 是
+                .form_submit
+                  input(type="reset" value="取消")
+                  input(type="submit" value="送出")
+        footer
+          .footer_item.clearfix
+            .about
+              h3 關於 六角西餐廳
+              p.content Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio, voluptatem! Explicabo consequatur ullam aspernatur odit expedita deserunt adipisci nemo sint.
+            .contact
+              h3 聯絡方式
+              ul.content
+                li 高雄市中正五路到底
+                li +886 886 886
+                li service@hexschool.com
+          .footer_logo
+            .logo
+              img(src="images/logo_l@svg.svg")
+            .icon
+              i.fab.fa-google-plus-square
+              i.fab.fa-twitter-square
+              i.fab.fa-facebook-square
+  
+  script(src="js/jquery-3.3.1.min.js")
+  script(src='js/vue.min.js')
+  script(src="js/all.js")
+        
+              
+
+          
+              
+                
+
+
+

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+    <meta name="description" content="六角西餐廳，切的美味，更對味"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="stylesheets/all.css"/>
+    <title>線上訂購 - 六角西餐廳</title>
+    <link rel="shortcut icon" type="image/png" href="images/tab_icon.png" sizes="32x32"/>
+  </head>
+  <body>
+    <div class="modal">
+      <button class="modal_close" onclick="modalClose()"><i class="fas fa-times"></i></button>
+      <div class="modal_card opa">
+        <div class="modal_main">
+          <div class="modal_title">
+            <div class="logo"><img src="images/logo_l@svg.svg"/></div>
+            <h3>享受美食好味道</h3>
+          </div>
+          <form class="login_form">
+            <fieldset class="login_field">
+              <legend>
+                <h3>LOGIN</h3>
+              </legend>
+              <div class="input_area mg_bottom">
+                <label for="login_account">Email Address*</label>
+                <div class="input">
+                  <input id="login_account" type="email" placeholder="test@gmail.com" required="required"/><span><i class="far fa-envelope"></i></span>
+                </div>
+              </div>
+              <div class="input_area">
+                <label for="login_pass">Password*</label>
+                <div class="input">
+                  <input id="login_pass" type="password" placeholder="Your password" required="required"/><span><i class="fas fa-unlock-alt"></i></span>
+                </div>
+                <div class="forget"><a href="#" target="_blank">忘記密碼?</a></div>
+              </div>
+              <div class="btn login">
+                <button class="signIn" type="submit">登入</button>
+                <button class="googleIn" type="submit">以Google帳號登入</button>
+              </div>
+            </fieldset>
+            <fieldset class="register_field" disabled="disabled">
+              <legend>
+                <h3 class="legend">REGISTER</h3>
+              </legend>
+              <div class="input_area mg_bottom">
+                <label for="register_account">Email Address*</label>
+                <div class="input">
+                  <input id="register_account" type="email" placeholder="test@gmail.com" required="required"/><span><i class="far fa-envelope"></i></span>
+                </div>
+              </div>
+              <div class="input_area mg_bottom">
+                <label for="register_pass">Password*</label>
+                <div class="input">
+                  <input id="register_pass" type="password" placeholder="Your password" required="required"/><span><i class="fas fa-unlock-alt"></i></span>
+                </div>
+              </div>
+              <div class="input_area">
+                <label for="confirm">Confirm*</label>
+                <div class="input">
+                  <input id="confirm" type="password" placeholder="Confirm your password" required="required"/><span><i class="fas fa-check-double"></i></span>
+                </div>
+              </div>
+              <div class="policy">註冊後，即同意 <a href="#" target="_blank">使用條款</a> 和 <a href="#" target="_blank">隱私政策</a></div>
+              <div class="btn register">
+                <button class="signIn" type="submit">註冊          </button>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+        <div class="modal_change"><span>還沒有帳號嗎？</span><a href="javascript:;" onclick="changeModal()">立即註冊</a></div>
+      </div>
+    </div>
+    <div class="wrap-all" id="app">
+      <nav>
+        <div class="topbar">
+          <h1 class="logo"><a href="index.html">六角西餐廳</a></h1>
+          <div class="top-menu">
+            <ul class="hide">
+              <li><a href="index.html#features" onclick="tapMenu()">特色</a></li>
+              <li><a href="index.html#chef" onclick="tapMenu()">主廚</a></li>
+              <li><a href="index.html#reserve" onclick="tapMenu()">地圖</a></li>
+              <li><a href="policy.html" onclick="tapMenu()">使用條款</a></li>
+              <li>
+                <button class="login_btn" onClick="modalShow()">登入</button>
+              </li>
+            </ul>
+          </div>
+          <div class="top-menuToggle-mobile">
+            <button class="menu-toggle" onClick="tapMenu()"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+          </div>
+        </div>
+      </nav>
+      <header id="header">
+        <div class="banner">
+          <h2 class="logo"><img src="images/logo_w@svg.svg"/></h2>
+          <div class="banner_text">
+            <h2>咬一口就無法忘懷的漢堡</h2>
+            <h3>七夕絕對無法錯過的好滋味<br/><i class="fas fa-utensils"></i>六角大漢堡<i class="fas fa-utensils"></i></h3>
+          </div>
+        </div>
+      </header>
+      <aside class="sidebar">
+        <div class="bubble_list">
+          <ul>
+            <li class="purchase">
+              <button onclick="javascript:window.location.href='cart.html'">
+                <div class="cart_icon"><img src="images/cart.svg" width="32px" height="32px"/></div>
+              </button>
+            </li>
+            <li class="share">
+              <button>
+                <div class="share_icon"><img src="images/share.svg" width="32px" height="32px"/></div>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </aside>
+      <aside class="bottomBar-mobile if-top">
+        <ul>
+          <li class="purchase">
+            <button onclick="javascript:window.location.href='cart.html'">
+              <div class="cart_icon">
+                <div class="cart_num">0</div>
+              </div>
+              <div class="cart_icon"><img src="images/cart_w.svg" width="32px" height="32px"/>結 帳 去</div>
+            </button>
+          </li>
+          <li class="share">
+            <button>
+              <div class="cart_icon"><img src="images/share_w.svg" width="32px" height="32px"/>分　享</div>
+            </button>
+          </li>
+        </ul>
+      </aside>
+      <div class="wrap">
+        <main id="cart">
+          <section class="category">
+            <h2><i class="fab fa-envira"></i>線上訂購美食</h2>
+            <div class="series">
+              <ul>
+                <li v-for="(category, index) in categories" @click="activate(index)" :class="[index === active ? 'active' : '']"><a href="javascript:;">{{ category.title }}</a></li>
+              </ul>
+            </div>
+          </section>
+          <section class="meals">
+            <div class="meals-top">
+              <div class="search">
+                <input type="text"/>
+                <button class="search_button"><i class="fas fa-search"></i></button>
+              </div>
+              <div class="check"><a href="#">
+                  <h4>結帳去</h4>
+                  <div class="cart_icon"><i class="fas fa-shopping-cart">
+                      <div class="cart_num">0</div></i></div></a></div>
+            </div>
+            <div class="meals-card">
+              <ul>
+                <li class="item" v-for="meal in content"><a class="top" href="#">
+                    <div class="meals_pic"><img :src="'images/' + meal.coverImage"/></div></a>
+                  <div class="favorite"><i class="far fa-heart"></i></div>
+                  <div class="hot" v-if="meal.hot">
+                    <h3>熱銷美食</h3>
+                  </div>
+                  <div class="bottom">
+                    <h2 class="title">{{ meal.title }}<br/><span class="engTitle">{{ meal.engTitle }}</span></h2>
+                    <div class="line"></div>
+                    <h4 class="price"><i class="fas fa-dollar-sign"></i> {{ meal.price }}</h4><a class="detail" href="#">
+                      <h4>餐點介紹</h4></a>
+                    <button class="addToCart" onclick="addToCart()">
+                      <h4><i class="fas fa-shopping-cart"></i> 加入購物車</h4>
+                    </button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </main>
+        <footer class="clearfix">
+          <div class="footer_item">
+            <div class="about">
+              <h3>關於 六角西餐廳</h3>
+              <p class="content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio, voluptatem! Explicabo consequatur ullam aspernatur odit expedita deserunt adipisci nemo sint.</p>
+            </div>
+            <div class="contact">
+              <h3>聯絡方式</h3>
+              <ul class="content">
+                <li>高雄市中正五路到底</li>
+                <li>+886 886 886</li>
+                <li>service@hexschool.com</li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer_logo">
+            <div class="logo"><img src="images/logo_l@svg.svg"/></div>
+            <div class="icon"><i class="fab fa-google-plus-square"></i><i class="fab fa-twitter-square"></i><i class="fab fa-facebook-square"></i></div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/vue.min.js"></script>
+  <script src="js/all.js"></script>
+</html>
